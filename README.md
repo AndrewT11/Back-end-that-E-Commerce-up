@@ -1,24 +1,28 @@
 # Back-end-that-E-Commerce-up
+
 ### Practice for your soon-to-be E-commerce business
 
 **Version 1.0**
 
-## Note 
+## Note
+
 You are important.
 
 ## Installation Instructions
 
 Before running this program:
-1) Fork the repo at https://github.com/AndrewT11/Back-end-that-E-Commerce-up
-2) Run "npm init -y" in the command line prompt
-3) Run "npm install" in the command line prompt
-4) Log onto MySQL
-5) At your root file, run "source db/schema.sql;" to run the schema.js code and create your database/tables
-6) Run "source db/seeds.sql;" to fetch the seeds for your tables
-7) Exit MySQL
-8) Type "npm start" into command line prompt and enjoy FunEmployee Tracker!
+
+1. Fork the repo at https://github.com/AndrewT11/Back-end-that-E-Commerce-up
+2. Run "npm init -y" in the command line prompt
+3. Run "npm install" in the command line prompt
+4. Log onto MySQL
+5. At your root file, run "source db/schema.sql;" to run the schema.js code and create your database/tables
+6. Run "source db/seeds.sql;" to fetch the seeds for your tables
+7. Exit MySQL
+8. Type "npm start" into command line prompt and enjoy FunEmployee Tracker!
 
 ## Acceptance Criteria
+
 Students have completed this project when:
 
 ```md
@@ -33,31 +37,30 @@ WHEN I open API GET routes in Insomnia Core for categories, products, or tags
 THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
 THEN I am able to successfully create, update, and delete data in my database
-``
-
+```
 
 ## Media
 
-Video Link: 
-
+Video Link:
 
 ## Links
-* [Deployed Website Link](https://andrewt11.github.io/Back-end-that-E-Commerce-up/)
-* [Code Repository Link](https://github.com/AndrewT11/Back-end-that-E-Commerce-up)
+
+- [Deployed Website Link](https://andrewt11.github.io/Back-end-that-E-Commerce-up/)
+- [Code Repository Link](https://github.com/AndrewT11/Back-end-that-E-Commerce-up)
 
 ## Credits
+
 Andrew Tran
 
 ### Resources
 
-* https://www.w3schools.com/
-* https://developer.mozilla.org/en-US/
-* https://choosealicense.com/
-* https://www.stackoverflow.com
-
-
+- https://www.w3schools.com/
+- https://developer.mozilla.org/en-US/
+- https://choosealicense.com/
+- https://www.stackoverflow.com
 
 ### License
+
 Copyright (c) [2021] [Andrew Tran]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
