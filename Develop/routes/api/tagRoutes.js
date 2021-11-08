@@ -1,16 +1,32 @@
 const router = require("express").Router();
-const { Category, Product, Tag } = require("../../models");
+const { Category, Product, Tag, ProductTag } = require("../../models");
 
 // GET all tags
 router.get("/", async (req, res) => {
   try {
     const tagData = await Tag.findAll({
-      include: [{ model: Product, through: ProductTag, as: "products_Tag" }],
+      ///include any models tags belongs to
+      include: [
+        {
+          model: Product,
+          through: ProductTag,
+        },
+      ],
     });
     res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   }
+  // Tag.findAll({
+  //   include: [
+  //     {
+  //       model: Product,
+  //       through: ProductTag,
+  //     },
+  //   ],
+  // })
+  //   .then((tags) => res.status(200).json(tags))
+  //   .catch((err) => res.status(500).json(err));
 });
 
 // GET a single tag
