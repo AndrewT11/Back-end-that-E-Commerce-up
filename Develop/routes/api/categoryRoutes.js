@@ -61,4 +61,22 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// UPDATE a category
+router.put("/:id", async (req, res) => {
+  try {
+    const categoryData = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!categoryData) {
+      res.status(404).json({ message: "No category found with this id!" });
+    }
+
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
