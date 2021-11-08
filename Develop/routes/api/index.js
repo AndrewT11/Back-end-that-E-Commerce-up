@@ -4,7 +4,7 @@ const categoryRoutes = require("./categoryRoutes");
 const productRoutes = require("./productRoutes");
 const tagRoutes = require("./tagRoutes");
 
-router.use("/category", categoryRoutes);
+router.use("/categories", categoryRoutes);
 router.use("/products", productRoutes);
 router.use("/tags", tagRoutes);
 
