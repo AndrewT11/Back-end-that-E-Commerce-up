@@ -13,22 +13,17 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    make: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    model: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    mileage: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
-    driver_id: {
+    product_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "driver",
+        model: "product",
+        key: "id",
+      },
+    },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tag",
         key: "id",
       },
     },

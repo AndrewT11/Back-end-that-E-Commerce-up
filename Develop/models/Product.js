@@ -16,22 +16,29 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    make: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    model: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
+      validate: {
+        isDecimal: true,
+      },
     },
-    mileage: {
+    stock: {
       type: DataTypes.INTEGER,
-      defaultValue: 0,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true,
+      },
     },
-    driver_id: {
+    category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "driver",
+        model: "category",
         key: "id",
       },
     },
