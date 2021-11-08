@@ -1,60 +1,61 @@
 const router = require("express").Router();
 const { Category, Product, Tag } = require("../../models");
 
-// GET all locations
+// GET all category
 router.get("/", async (req, res) => {
   try {
-    const locationData = await Location.findAll();
-    res.status(200).json(locationData);
+    const categoryData = await Category.findAll({
+      include: [{ model: Product }],
+    });
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// GET a single location
+// GET a single category
 router.get("/:id", async (req, res) => {
   try {
-    const locationData = await Location.findByPk(req.params.id, {
-      // JOIN with travellers, using the Trip through table
-      include: [{ model: Traveller, through: Trip, as: "location_travellers" }],
+    const categoryData = await Category.findByPk(req.params.id, {
+      include: [{ model: Product }],
     });
 
-    if (!locationData) {
-      res.status(404).json({ message: "No location found with this id!" });
+    if (!categoryData) {
+      res.status(404).json({ message: "No category found with this id!" });
       return;
     }
 
-    res.status(200).json(locationData);
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// CREATE a location
+// CREATE a category
 router.post("/", async (req, res) => {
   try {
-    const locationData = await Location.create(req.body);
-    res.status(200).json(locationData);
+    const categoryData = await Category.create(req.body);
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// DELETE a location
+// DELETE a category
 router.delete("/:id", async (req, res) => {
   try {
-    const locationData = await Location.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (!locationData) {
-      res.status(404).json({ message: "No location found with this id!" });
+    if (!categoryData) {
+      res.status(404).json({ message: "No category found with this id!" });
       return;
     }
 
-    res.status(200).json(locationData);
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
