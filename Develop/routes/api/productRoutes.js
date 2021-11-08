@@ -4,7 +4,13 @@ const { Category, Product, Tag, ProductTag } = require("../../models");
 // GET all products
 router.get("/", async (req, res) => {
   try {
-    const productData = await product.findAll();
+    const productData = await product.findAll({
+      //include any models product belongs to
+      include: [
+        { model: Category },
+        { model: Tag, through: ProductTag, as: "tags_product" },
+      ],
+    });
     res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
@@ -15,8 +21,11 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const productData = await product.findByPk(req.params.id, {
-      // JOIN with travellers, using the Trip through table
-      include: [{ model: Traveller, through: Trip, as: "product_travellers" }],
+      //include any models product belongs to
+      include: [
+        { model: Category },
+        { model: Tag, through: ProductTag, as: "tags_product" },
+      ],
     });
 
     if (!productData) {
@@ -60,19 +69,19 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//UPDATE a locaiton
+//UPDATE a product
 router.put("/:id", async (req, res) => {
   try {
-    const categoryData = await Category.update(req.body, {
+    const categoryData = await Product.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
-    if (!categoryData) {
+    if (!productData) {
       res.status(404).json({ message: "No category found with this id!" });
     }
 
-    res.status(200).json(categoryData);
+    res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
