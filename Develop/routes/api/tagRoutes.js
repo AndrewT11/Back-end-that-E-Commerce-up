@@ -84,16 +84,21 @@ router.delete("/:id", async (req, res) => {
 
 //UPDATE a tag
 router.put("/:id", async (req, res) => {
+  // Calls the update method on the Tag model
   try {
-    const tagData = await Tag.update(req.body, {
-      where: {
-        id: req.params.id,
+    const tagData = await Tag.update(
+      {
+        tag_name: req.body.tag_name,
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
     if (!tagData) {
       res.status(404).json({ message: "No tag found with this id!" });
     }
-
     res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);

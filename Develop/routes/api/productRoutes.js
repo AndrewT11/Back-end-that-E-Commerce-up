@@ -71,16 +71,24 @@ router.delete("/:id", async (req, res) => {
 
 //UPDATE a product
 router.put("/:id", async (req, res) => {
+  // Calls the update method on the Product model
   try {
-    const categoryData = await Product.update(req.body, {
-      where: {
-        id: req.params.id,
+    const productData = await Product.update(
+      {
+        product_name: req.body.product_name,
+        price: req.body.price,
+        stock: req.body.stock,
+        category_id: req.body.category_id,
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
     if (!productData) {
-      res.status(404).json({ message: "No category found with this id!" });
+      res.status(404).json({ message: "No product found with this id!" });
     }
-
     res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
