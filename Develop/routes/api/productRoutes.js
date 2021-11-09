@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Category, Product, Tag, ProductTag } = require("../../models");
 
 // GET all products
-router.get("/", async (req, res) => {
+http: router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
       //include any models product belongs to
