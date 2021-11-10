@@ -17,6 +17,8 @@ router.get("/", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+
+  // working code! .then asynchronous promise verison //
   // Tag.findAll({
   //   include: [
   //     {

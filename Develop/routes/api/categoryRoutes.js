@@ -62,9 +62,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 // UPDATE a category
-
 router.put("/:id", async (req, res) => {
-  // Calls the update method on the Category model
   try {
     const categoryData = await Category.update(
       {
@@ -85,7 +83,9 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-///         WORKING CODE!!!!! ///
+module.exports = router;
+
+///         WORKING CODE!!!!! .then asynchronous promise version ///
 // router.put("/:id", (req, res) => {
 //   // Calls the update method on the Category model
 //   //SQL version - UPDATE book SET title = x WHERE id = x
@@ -107,5 +107,3 @@ router.put("/:id", async (req, res) => {
 //     })
 //     .catch((err) => res.json(err));
 // });
-
-module.exports = router;

@@ -71,7 +71,6 @@ router.delete("/:id", async (req, res) => {
 
 //UPDATE a product
 router.put("/:id", async (req, res) => {
-  // Calls the update method on the Product model
   try {
     const productData = await Product.update(
       {
