@@ -17,9 +17,10 @@ Before running this program:
 3. Run "npm install" in the command line prompt
 4. Log onto MySQL
 5. At your root file, run "source db/schema.sql;" to run the schema.js code and create your database/tables
-6. Run "source db/seeds.sql;" to fetch the seeds for your tables
-7. Exit MySQL
-8. Type "npm start" into command line prompt and enjoy FunEmployee Tracker!
+6. Exit MySQL
+7. Run "node seeds/index.js;" in the command line prompt to seed your database
+8. Type "npm start" into command line prompt to connect to the server
+9. Load Insomnia, connect to the correct port, and enjoy E-Commerce Back-End application
 
 ## Acceptance Criteria
 
@@ -51,6 +52,8 @@ Video Link: https://drive.google.com/file/d/1p4m47OFZpwRBou-QbcgGr1_9ZNmZ4QfG/vi
 ## Credits
 
 Andrew Tran
+BCS Assistants
+Thu Phan
 
 ### Resources
 
